@@ -1,4 +1,4 @@
-package leetcode.四键键盘;
+package Labuladong.四键键盘;
 
 import java.util.HashMap;
 
@@ -37,9 +37,9 @@ public class Solution {
     private int solution_2(int n) {
         int[] dp = new int[n + 1];
         dp[0] = 0;
-        for (int i = 1; i <= n; i++) {
-            dp[i] = dp[i - 1] + 1;
-            for (int j = 2; j < i; j++)
+        for (int i = 1; i <= n; i++) {  // n：击键次数
+            dp[i] = dp[i - 1] + 1;  // 如果最后是a
+            for (int j = 2; j < i; j++) // 在过往的次数中选择一个时刻作为ctrl-v的起点，那么它前两次必然是ctrl-a,ctrl-c，然后后面连续多个ctrl-v
                 dp[i] = Math.max(dp[i], dp[j - 2] * (i - j + 1));   // j-2，表示ctrl-a, ctrl-c，然后连续按了i-j+1次ctrl-v
         }
         return dp[n];

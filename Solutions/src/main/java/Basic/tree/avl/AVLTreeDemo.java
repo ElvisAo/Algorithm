@@ -3,7 +3,6 @@ package Basic.tree.avl;
 /**
  * @author Everett
  * @version 1.0
- * @description TODO
  * @date 1/30/2021 5:31 PM
  */
 
@@ -17,9 +16,7 @@ class Node implements Comparable<Node> {
 
     @Override
     public String toString() {
-        return "Node{" +
-                "data=" + data +
-                '}';
+        return "Node{" + "data=" + data + '}';
     }
 
     @Override
@@ -71,7 +68,7 @@ class Node implements Comparable<Node> {
      */
     public Node searchNode(int target) {
         if (this.data == target) {
-            if (this.right != null && this.right.data == target) {  // 注意考虑等于的情况
+            if (this.right != null && this.right.data == target) { // 注意考虑等于的情况
                 return this.right.searchNode(target);
             } else {
                 return this;
@@ -98,8 +95,7 @@ class Node implements Comparable<Node> {
      * @return 目标节点的父节点
      */
     public Node searchParentNode(int target) {
-        if ((this.left != null && this.left.data == target)
-                || (this.right != null && this.right.data == target)) {
+        if ((this.left != null && this.left.data == target) || (this.right != null && this.right.data == target)) {
             return this;
         } else {
             if (this.data >= target && this.left != null) {
@@ -116,7 +112,8 @@ class Node implements Comparable<Node> {
      * 返回以当前节点为根的树的高度
      */
     public int getHeight() {
-        return Math.max((this.right == null) ? 0 : this.right.getHeight(), (this.left == null) ? 0 : this.left.getHeight()) + 1;
+        return Math.max((this.right == null) ? 0 : this.right.getHeight(),
+                (this.left == null) ? 0 : this.left.getHeight()) + 1;
     }
 
     /**
@@ -255,11 +252,8 @@ class AVLTree {
     }
 
     /**
-     * 主要是要考虑到删除节点为根节点的情况
-     * * 分三种情况：
-     * * 1. 目标节点无子节点：直接删除
-     * * 2. 目标节点有一个子节点：让其父节点直接指向目标节点的子节点
-     * * 3. 目标节点有两个子节点：用右子树中的最小的节点代替目标节点
+     * 主要是要考虑到删除节点为根节点的情况 * 分三种情况： * 1. 目标节点无子节点：直接删除 * 2.
+     * 目标节点有一个子节点：让其父节点直接指向目标节点的子节点 * 3. 目标节点有两个子节点：用右子树中的最小的节点代替目标节点
      *
      * @param target 要删除的目标节点的值
      * @return 被删除的节点
@@ -269,11 +263,11 @@ class AVLTree {
             return null;
         } else {
             Node targetNode = this.searchNode(target);
-            if (targetNode == null) {   // 没有找到目标节点
+            if (targetNode == null) { // 没有找到目标节点
                 return null;
             }
             Node parentNode = this.searchParentNode(target);
-            if (targetNode.left == null && targetNode.right == null) {  // 要删除的节点为叶子节点
+            if (targetNode.left == null && targetNode.right == null) { // 要删除的节点为叶子节点
                 // 叶子节点
                 if (targetNode == this.root) {
                     this.root = null;
@@ -284,13 +278,13 @@ class AVLTree {
                 } else {
                     parentNode.right = null;
                 }
-            } else if (targetNode.left != null && targetNode.right != null) {   // 都不为空
+            } else if (targetNode.left != null && targetNode.right != null) { // 都不为空
                 /**
                  * 直接改变节点的值，就不用考虑引用的改变
                  */
                 Node minNode = findDeleteMinNode(targetNode.right);
                 targetNode.data = minNode.data;
-            } else {    // 有一个节点
+            } else { // 有一个节点
                 if (targetNode.left != null) {
                     if (targetNode != this.root) {
                         parentNode.left = targetNode.left;
@@ -312,20 +306,16 @@ class AVLTree {
 
 public class AVLTreeDemo {
     public static void main(String[] args) {
-        int[] arr = {10, 7, 11, 6, 8, 8, 9};
+        int[] arr = { 10, 7, 11, 6, 8, 8, 9 };
         AVLTree avlTree = new AVLTree();
         for (int ele : arr) {
             avlTree.addNode(new Node(ele));
         }
-        /*avlTree.deleteNode(12);
-        avlTree.deleteNode(7);
-        avlTree.infixOrder();
-        for (int ele : arr) {
-            avlTree.deleteNode(ele);
-        }
-        avlTree.infixOrder();
-        System.out.println("________________________________");
-        */
+        /*
+         * avlTree.deleteNode(12); avlTree.deleteNode(7); avlTree.infixOrder(); for (int
+         * ele : arr) { avlTree.deleteNode(ele); } avlTree.infixOrder();
+         * System.out.println("________________________________");
+         */
         System.out.println("根节点为：" + avlTree.getRoot());
         System.out.println("左子树的高度：" + avlTree.getRoot().getLeftHeight());
         System.out.println("右子树的高度：" + avlTree.getRoot().getRightHeight());

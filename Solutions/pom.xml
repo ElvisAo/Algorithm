@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>std.uestc.edu.cn</groupId>
-    <artifactId>LeecodeSolutions</artifactId>
+    <artifactId>Solutions</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>

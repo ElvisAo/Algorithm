@@ -6,6 +6,7 @@ import java.util.PriorityQueue;
 public class Solution {
     public static void main(String[] args) {
         int[][] t = {{1, 5}, {2, 3}, {3, 4}, {4, 7}};
+        Thread thread = Thread.currentThread();
         System.out.println(new Solution().minmumNumberOfHost(4, t));
     }
 

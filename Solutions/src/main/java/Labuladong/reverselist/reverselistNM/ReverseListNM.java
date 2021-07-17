@@ -4,12 +4,12 @@ import common.ListNode;
 
 public class ReverseListNM {
     public static void main(String[] args) {
-        ListNode<Integer> n1 = new ListNode<>(1);
-        ListNode<Integer> n2 = new ListNode<>(2);
-        ListNode<Integer> n3 = new ListNode<>(3);
-        ListNode<Integer> n4 = new ListNode<>(4);
-        ListNode<Integer> n5 = new ListNode<>(5);
-        ListNode<Integer> n6 = new ListNode<>(6);
+        ListNode n1 = new ListNode(1);
+        ListNode n2 = new ListNode(2);
+        ListNode n3 = new ListNode(3);
+        ListNode n4 = new ListNode(4);
+        ListNode n5 = new ListNode(5);
+        ListNode n6 = new ListNode(6);
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
@@ -37,7 +37,7 @@ public class ReverseListNM {
             successor = head.next;
             return head;
         }
-        ListNode h = reverseFrontN(head.next, n -  1);
+        ListNode h = reverseFrontN(head.next, n - 1);
         head.next.next = head;
         head.next = successor;
         return h;

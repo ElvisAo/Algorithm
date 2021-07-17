@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 /**
  * Definition for singly-linked list.
@@ -46,7 +47,11 @@ class Solution {
 
 public class Test {
     public static void main(String[] args) {
-        System.out.println(new Integer(12345)==new Integer(12345));
+////        System.out.println(new Integer(12345)==
+//        int a = 1, b = 0;
+//        System.out.println(a / b);
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        map.put(1, 1);
     }
 }
 

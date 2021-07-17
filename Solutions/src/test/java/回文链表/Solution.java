@@ -22,7 +22,7 @@ public class Solution {
         // write code here
         if (head == null || head.next == null) return true;
         ArrayList<Integer> list = new ArrayList<>();
-        ListNode<Integer> t = head;
+        ListNode t = head;
         while (t != null) {
             list.add(t.val);
             t = t.next;

@@ -22,7 +22,7 @@ public class Solution {
         return r;
     }
 
-    private void helper(TreeNode<Integer> root) {
+    private void helper(TreeNode root) {
         if (root != null) {
             helper(root.left);
             list.add(root.val);
@@ -30,10 +30,10 @@ public class Solution {
         }
     }
 
-    public int[] solution_2(TreeNode<Integer> root) {
-        Stack<TreeNode<Integer>> stack = new Stack<>();
+    public int[] solution_2(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
         LinkedList<Integer> list = new LinkedList<>();
-        TreeNode<Integer> t = root;
+        TreeNode t = root;
         while (!stack.isEmpty() || t != null) {
             if (t != null) {
                 stack.push(t);

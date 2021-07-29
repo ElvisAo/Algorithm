@@ -1,13 +1,10 @@
-import com.sun.istack.internal.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import demo.defaultDemo;
 
 public class JSRDemo {
 
 
     public static void main(String[] args) {
-
+        System.out.println(defaultDemo.prop2);
     }
 
 }

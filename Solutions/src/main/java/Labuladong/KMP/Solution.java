@@ -37,7 +37,7 @@ class KMP {
 
 public class Solution {
     public static void main(String[] args) {
-        String str ="aba";
+        String str = "aba";
         String pattern = "ababab";
         KMP kmp = new KMP(pattern);
         System.out.println(kmp.search(str));

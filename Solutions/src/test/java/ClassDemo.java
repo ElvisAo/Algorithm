@@ -1,4 +1,6 @@
 import java.util.HashSet;
+import demo.defaultDemo;
+
 
 public class ClassDemo {
     private static int pint = 0;
@@ -22,6 +24,7 @@ public class ClassDemo {
         HashSet<Integer> set = new HashSet<>();
         set.add(1);
         System.out.println(set.add(1));
+        System.out.println(defaultDemo.prop2);
     }
 
     public void test() {

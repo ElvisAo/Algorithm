@@ -1,5 +1,7 @@
 package Labuladong.priorityqueuevaheap;
 
+import java.util.Arrays;
+
 class MaxPQ<K extends Comparable<K>> {
     private K[] pq;
     private int size = 0;  // 当前priority queue中的元素个数
@@ -66,6 +68,9 @@ class MaxPQ<K extends Comparable<K>> {
         sink(1);
         return r;
     }
+    public void print(){
+        System.out.println(Arrays.toString(pq));
+    }
 
 }
 
@@ -89,5 +94,6 @@ public class HeapPriorityQueue {
         System.out.println(pq.removeMax());
         pq.insert(31);
         System.out.println(pq.removeMax());
+        pq.print();
     }
 }

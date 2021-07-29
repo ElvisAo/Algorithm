@@ -1,9 +1,11 @@
 package 二叉树右视图;
 
+import demo.defaultDemo;
+
 import java.util.*;
 
-
 public class Solution {
+
     /**
      * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
      * 求二叉树的右视图
@@ -18,6 +20,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
+        System.out.println(defaultDemo.prop2);
         int[] x = {1,2,4,5,3}, z = {4,2,5,1,3};
         int[] solve = new Solution().solve(x, z);
         System.out.println(Arrays.toString(solve));

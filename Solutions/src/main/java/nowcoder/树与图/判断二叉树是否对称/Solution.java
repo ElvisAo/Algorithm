@@ -11,8 +11,8 @@ import java.util.LinkedList;
 
 public class Solution {
     public static void main(String[] args) {
-        TreeNode<Integer> n1 = new TreeNode<>(1);
-        TreeNode<Integer> n2 = new TreeNode<>(2);
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n2 = new TreeNode(2);
         n1.left = n2;
         System.out.println(new Solution().solution_1(n1));
     }

@@ -2,12 +2,15 @@ package nowcoder.树与图.合并二叉树;
 
 import common.TreeNode;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Solution {
     public static void main(String[] args) {
 
     }
 
-    public TreeNode<Integer> mergeTrees(TreeNode<Integer> t1, TreeNode<Integer> t2) {
+    public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
         if (t1 == null) return t2;
         if (t2 == null) return t1;
         t1.val += t2.val;

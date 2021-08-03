@@ -58,6 +58,7 @@ class UF {
 }
 
 public class UnionFind {
+
     public static void main(String[] args) {
         UF uf = new UF(10);
         uf.uion(1, 3);

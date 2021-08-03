@@ -31,7 +31,7 @@ public class Solution {
         int[] dp = new int[V + 1];
         for (int i = 0; i <= V; i++) dp[i] = 0;
         for (int i = 1; i <= n; i++) {
-            for (int j = V; j > 0; j--) {
+            for (int j = V; j > 0; j--) {   // 因为依赖i-1行的结果，所以需要从后往前遍历
                 if (j - vw[i - 1][0] >= 0) {
                     dp[j] = Math.max(dp[j], dp[j - vw[i - 1][0]] + vw[i - 1][1]);
                 }

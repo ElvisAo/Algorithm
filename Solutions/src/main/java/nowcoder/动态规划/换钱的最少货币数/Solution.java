@@ -3,7 +3,7 @@ package nowcoder.动态规划.换钱的最少货币数;
 import java.util.Arrays;
 
 /**
- * 参见{@link leetcode.动态规划.背包问题.零钱兑换_完全背包.Solution}
+ * 参见{@link leetcode.动态规划.背包问题.零钱兑换_完全背包_求最少硬币数.Solution}
  */
 public class Solution {
     public static void main(String[] args) {

@@ -3,6 +3,9 @@ package nowcoder.栈.单调栈;
 import java.util.Arrays;
 import java.util.LinkedList;
 
+/**
+ * 注意对比{@link LeetCode热题HOT100.盛最多水的容器.Solution}
+ */
 public class Solution {
     public static void main(String[] args) {
         int[] t = {3, 4, 1, 5, 6, 2, 7};

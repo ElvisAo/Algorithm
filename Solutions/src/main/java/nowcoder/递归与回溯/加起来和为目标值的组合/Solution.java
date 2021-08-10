@@ -7,6 +7,9 @@ package nowcoder.递归与回溯.加起来和为目标值的组合;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * 和{@link leetcode.回溯.组合总和}一样
+ */
 public class Solution {
     public static void main(String[] args) {
         int[] ints = {1, 2, 2, 2, 3, 4, 5};

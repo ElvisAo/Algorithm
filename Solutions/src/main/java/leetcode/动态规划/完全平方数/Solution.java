@@ -6,6 +6,7 @@ public class Solution {
     public static void main(String[] args) {
         System.out.println(new Solution().numSquares(7));
     }
+
     public int numSquares(int n) {
         int[] dp = new int[n + 1];
         Arrays.fill(dp, n + 1);
@@ -15,7 +16,6 @@ public class Solution {
                 dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
             }
         }
-//        System.out.println(Arrays.toString(dp));
         return dp[n];
     }
 }

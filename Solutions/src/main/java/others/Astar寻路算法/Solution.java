@@ -18,7 +18,7 @@ import java.util.*;
  */
 public class Solution {
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new FileInputStream("E:\\Everett\\OneDrive - std.uestc.edu.cn\\Data\\leecode\\LeecodeSolutions\\src\\main\\java\\otherclassic.Astar寻路算法\\input.txt"));
+        Scanner scanner = new Scanner(new FileInputStream(".\\src\\main\\java\\others\\Astar寻路算法\\input.txt"));
         String matrixInput = scanner.nextLine();
         String[] line = matrixInput.split(";");
         int row = line.length, col = line[0].split(",").length;

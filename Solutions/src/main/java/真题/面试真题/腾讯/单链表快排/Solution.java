@@ -15,15 +15,15 @@ public class Solution {
 
     public static void main(String[] args) throws FileNotFoundException {
 //        Scanner sc = new Scanner(new FileInputStream("真题.面试真题/链表/单链表快排/input.txt"));
-        int[] arr = new int[R];
+/*        int[] arr = new int[R];
         for (int i = 0; i < R; i++) {
             arr[i] = new Random().nextInt(100);
-        }
-/*        int[] arr = new int[4];
+        }*/
+        int[] arr = new int[4];
         arr[0] = 4;
-        arr[1] = 2;
+        arr[1] = 1;
         arr[2] = 1;
-        arr[3] = 3;*/
+        arr[3] = 4;
         System.out.println(Arrays.toString(arr));
         ListNode head = new ListNode(0);
         ListNode p = head;

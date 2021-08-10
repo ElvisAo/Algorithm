@@ -4,10 +4,16 @@ import java.util.LinkedList;
 
 public class Solution {
     public static void main(String[] args) {
-        String s = "()()(()())((()()";
+        String s = "(()";
         System.out.println(new Solution().solution_3(s));
     }
 
+    /**
+     * {@动态规划}
+     *
+     * @param s
+     * @return
+     */
     public int solution_1(String s) {
         int ln = s.length();
         int[] dp = new int[ln];     // dp[i]：以i结尾的有效子字符串的长度
@@ -21,6 +27,12 @@ public class Solution {
         return r;
     }
 
+    /**
+     * {@栈：栈里面只放(的索引，遇到)，出栈一个}
+     *
+     * @param s
+     * @return
+     */
     public int solution_2(String s) {
         int ln = s.length(), cur_length = 0, max_length = 0;
         LinkedList<Integer> stack = new LinkedList<Integer>();
@@ -28,10 +40,10 @@ public class Solution {
         for (int i = 0; i < ln; i++) {
             if (s.charAt(i) == '(') stack.push(i);
             else {
-                stack.pop();
+                stack.pop();    // 遇到），就先pop
                 if (stack.isEmpty()) stack.push(i); // 表示i已经不匹配，所以才会把栈底的元素都pop出来，然后这个i就是一个“区分”
                 else {
-                    cur_length = i - stack.peek();
+                    cur_length = i - stack.peek();  // 注意：这里是peek，因为上面已经pop过了
                     max_length = Math.max(cur_length, max_length);
                 }
             }
@@ -48,8 +60,20 @@ public class Solution {
         for (int i = 0; i < ln; i++) {
             if (s.charAt(i) == '(') left++;
             else right++;
-            if (left == right) max_length = Math.max(max_length, 2 * left);
+            if (left == right) max_length = Math.max(max_length, 2 * right);    // 为什么这里是==而不是>=？>的情况会在倒着遍历的时候计算出来
             if (right > left) left = right = 0;
+        }
+
+        /**
+         * {@为什么要从后往前再遍历一次：避免前后两截被(分隔的情况
+         */
+        left = right = 0;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == '(') left++;
+            else right++;
+            if (left == right) max_length = Math.max(max_length, 2 * left);
+            else if (left > right) left = right = 0;
+
         }
         return max_length;
     }

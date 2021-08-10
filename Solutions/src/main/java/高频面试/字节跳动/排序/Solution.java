@@ -111,6 +111,10 @@ public class Solution {
             iniHeap(array);
         }
 
+        /**
+         * {@注意：在每次添加一个元素的时候，就已经对其排序了，important!!!}
+         * @param array
+         */
         private void iniHeap(int[] array) {
             int n = array.length;
             for (int i = 0; i < n; i++) {

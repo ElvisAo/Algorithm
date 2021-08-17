@@ -80,7 +80,7 @@ public class Solution {
         }
         while (!q.isEmpty()) {
             WeightedEdge edge = q.poll();
-            if (!uf.isConnected(edge.start, edge.end)) {
+            if (!uf.isConnected(edge.start, edge.end)) {    // 判断这条遍的起点和终点是否联通，如果联通，不加入，否则将他们union
                 uf.union(edge.start, edge.end);
                 r += edge.weight;
             }

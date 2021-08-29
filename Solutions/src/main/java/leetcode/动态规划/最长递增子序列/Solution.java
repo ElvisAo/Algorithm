@@ -9,7 +9,7 @@ public class Solution {
 
     public int solution_1(int[] nums) {
         int ln = nums.length;
-        int[] dp = new int[ln];
+        int[] dp = new int[ln];     // dp[i]：以索引i的元素结尾的递增子序列的长度
         Arrays.fill(dp, 1);
         int r = 1;
         for (int i = 0; i < ln; i++) {

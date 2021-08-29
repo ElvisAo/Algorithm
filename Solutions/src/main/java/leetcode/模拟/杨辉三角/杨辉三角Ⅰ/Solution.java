@@ -1,4 +1,4 @@
-package leetcode.模拟.杨辉三角;
+package leetcode.模拟.杨辉三角.杨辉三角Ⅰ;
 
 import java.util.ArrayList;
 import java.util.List;

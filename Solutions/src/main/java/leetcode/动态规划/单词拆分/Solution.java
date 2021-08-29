@@ -2,6 +2,10 @@ package leetcode.动态规划.单词拆分;
 
 import java.util.List;
 
+/**
+ * 题目描述：
+ * 给定一个非空字符串 s 和一个包含非空单词的列表 wordDict，判定 s 是否可以被空格拆分为一个或多个在字典中出现的单词。
+ */
 public class Solution {
     public static void main(String[] args) {
     }

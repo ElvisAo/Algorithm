@@ -4,7 +4,10 @@ import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-public class ConcurrentDemo {
+public class ConcurrentDemo{
+    static class T extends Thread{
+
+    }
     public static void main(String[] args) {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(
                 5, //corePoolSize

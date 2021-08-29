@@ -1,5 +1,6 @@
-import java.util.HashSet;
 import demo.defaultDemo;
+
+import java.util.HashSet;
 
 
 public class ClassDemo {
@@ -18,12 +19,14 @@ public class ClassDemo {
         private int pint = 2;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println(new SInner().psint);
         new SInner().test();
         HashSet<Integer> set = new HashSet<>();
         set.add(1);
         System.out.println(set.add(1));
+        set.wait();
+        Thread.sleep(100);
         System.out.println(defaultDemo.prop2);
     }
 

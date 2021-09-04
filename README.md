@@ -1,2 +1,2 @@
 # leecode
-The solutions of leecode
+Some solutions of algorithm

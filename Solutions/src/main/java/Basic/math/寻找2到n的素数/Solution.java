@@ -1,4 +1,4 @@
-package Basic.tree.math.寻找2到n的素数;
+package Basic.math.寻找2到n的素数;
 
 import java.util.LinkedList;
 

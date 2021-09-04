@@ -41,4 +41,24 @@ public class Solution {
         }
         return r;
     }
+
+    /**
+     * 动态规划2
+     * 如果前面的连续子数组已经小于0了，则抛弃
+     * 否则就加上当前数
+     *
+     * @param nums
+     * @return
+     */
+    public int solution_3(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int n = nums.length, r = Integer.MIN_VALUE;
+        int[] dp = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            if (dp[i - 1] < 0) dp[i] = nums[i - 1];
+            else dp[i] = dp[i - 1] + nums[i - 1];
+            r = Math.max(r, dp[i]);
+        }
+        return r;
+    }
 }

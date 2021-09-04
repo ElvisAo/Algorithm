@@ -41,7 +41,7 @@ public class ProducerConsumerDemo {
         @Override
         public void run() {
             while (true) {
-                lock.lock();
+                lock.lock();    // await的时候，会释放锁
                 while (buffer.size() == bufferSize) {
                     System.out.println(name + ": 缓冲区已满");
                     empty.await();

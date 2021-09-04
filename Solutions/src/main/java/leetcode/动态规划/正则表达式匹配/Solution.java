@@ -29,7 +29,7 @@ public class Solution {
 
     private HashMap<Tuple, Boolean> memo = new HashMap<>();
 
-    public boolean isMatch(String str, String pattern) {
+    public boolean solution_1(String str, String pattern) {
         return dp(str, pattern, 0, 0);
     }
 
@@ -78,5 +78,55 @@ public class Solution {
             }
         }
         return dp[n][m];
+    }
+
+    /**
+     * {@ldbuladong}
+     *
+     * @param s
+     * @param p
+     * @return
+     */
+    public boolean solution_3(String s, String p) {
+        return helper(s, 0, p, 0);
+    }
+
+    HashMap<String, Boolean> memo_map = new HashMap<>();
+
+    private boolean helper(String s, int i, String p, int j) {
+        int n = s.length(), m = p.length();
+        // base case
+        if (j == m) return i == n;  // 两个都已经匹配完了
+        else if (i == n) {  // s串已经走完了，看p能否匹配空串
+            // 如果能匹配空串，则一定是字符和*成对出现
+            if ((m - j) % 2 == 1) return false;
+            else {
+                for (; j + 1 < m; j += 2) {
+                    if (p.charAt(j + 1) != '*') return false;
+                }
+            }
+            return true;
+        }
+        String key = i + "" + j;
+        if (memo_map.containsKey(key)) return memo_map.get(key);
+        boolean r = false;
+        if (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.') { // 当前能匹配
+            // 如果p的下一个是*
+            if (j < m - 1 && p.charAt(j + 1) == '*') {
+                // 匹配多个或0个
+                r = helper(s, i + 1, p, j) || helper(s, i, p, j + 2);
+            } else {    // 否则只能匹配一个
+                r = helper(s, i + 1, p, j + 1);
+            }
+        } else {    // 当前不能匹配
+            // p的下一个是*，只能匹配0个
+            if (j < m - 1 && p.charAt(j + 1) == '*') {
+                r = helper(s, i, p, j + 2);
+            } else {
+                return r = false;
+            }
+        }
+        memo_map.put(key, r);
+        return r;
     }
 }

@@ -1,4 +1,4 @@
-package Labuladong及巧妙算法.Reverselist.链表中每k个一组反转;
+package Labuladong及巧妙算法.Reverselist.reverseKGroups;
 
 import common.ListNode;
 

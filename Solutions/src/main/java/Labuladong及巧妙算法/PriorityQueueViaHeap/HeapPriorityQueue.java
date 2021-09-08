@@ -1,4 +1,4 @@
-package Labuladong及巧妙算法.Priorityqueuevaheap;
+package Labuladong及巧妙算法.PriorityQueueViaHeap;
 
 import java.util.Arrays;
 

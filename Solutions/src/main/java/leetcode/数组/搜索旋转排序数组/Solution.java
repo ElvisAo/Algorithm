@@ -2,6 +2,9 @@ package leetcode.数组.搜索旋转排序数组;
 
 /**
  * 对于旋转数组，先判断是否找到目标，如果没有，再判断哪边是有序的，从而确定下一个搜索区间
+ *
+ * @see codetop.数组.寻找旋转排序数组中的最小值.Solution
+ * @see codetop.数组.搜索旋转排序数组.Solution
  */
 public class Solution {
     public static void main(String[] args) {

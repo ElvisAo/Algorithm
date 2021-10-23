@@ -12,7 +12,7 @@ public class Exercise {
     public int solution_1(int[] coins, int amount) {
         int n = coins.length;
         int[][] dp = new int[n + 1][amount + 1];    // dp[i][j]：前i种硬币，凑j元，所需的最少个数
-        for (int i = 0; i <= n; i++) {
+        for (int i = 0; i <= n; i++) {      // 为什么这里要从0开始：0实际上是表示没有硬币可用，自然就是不可能的（除了0）
             Arrays.fill(dp[i], amount + 2);
             dp[i][0] = 0;
         }

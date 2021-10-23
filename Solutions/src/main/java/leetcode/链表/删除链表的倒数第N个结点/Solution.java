@@ -13,8 +13,8 @@ public class Solution {
         while (fast != null && counter < n) {
             fast = fast.next;
             counter++;
-        }
-        if (fast == null) return null;
+        }   // 先把快指针走n步
+        if (fast == null) return null;  // 如果链表长度不够
         while (fast.next != null) {
             slowPre = slow;
             slow = slow.next;
@@ -29,5 +29,28 @@ public class Solution {
             slow.next = null;
             return head;
         }
+    }
+
+    /**
+     * @param head
+     * @param n
+     * @return
+     */
+    public ListNode solution_2(ListNode head, int n) {
+        ListNode slow = head, fast = head;
+        int counter = 1;
+        while (counter < n && fast != null) {
+            fast = fast.next;
+            counter++;
+        }
+        if (fast.next == null) return head.next;
+        ListNode slowPre = null;
+        while (fast.next != null) {
+            slowPre = slow;
+            slow = slow.next;
+            fast = fast.next;
+        }
+        slowPre.next = slow.next;
+        return head;
     }
 }

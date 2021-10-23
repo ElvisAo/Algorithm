@@ -2,6 +2,9 @@ package leetcode.链表.反转链表;
 
 import common.ListNode;
 
+/**
+ * 剑指 Offer II 024
+ */
 public class Solution {
     public ListNode reverseList_norec(ListNode head) {
         if (head == null || head.next == null) return head;

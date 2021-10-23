@@ -71,6 +71,9 @@ public class Solution {
 
     private ListNode partition(ListNode head, ListNode end) {
         int pivot = head.val;   // 取出pivot的值
+        /**
+         * 注意：比较巧妙的一点是使用pre来记录了最后一个小于pivot的节点
+         */
         ListNode pre = head, p1 = head.next, p2;
         while (true) {
             while (p1 != end && p1.val < pivot) {
@@ -78,7 +81,7 @@ public class Solution {
                 p1 = p1.next;
             }
             if (p1 == end) break;
-            p2 = p1.next;
+            p2 = p1.next;   // p1.val已经>=pivot了，P2从p1后面开始找比pivot小的
             while (p2 != end && p2.val > pivot) p2 = p2.next;   // 循环结束后，p2小于或等于pivot
             if (p2 == end) break;
             swap(p1, p2);
@@ -112,7 +115,7 @@ public class Solution {
             fast = fast.next.next;
         }
         ListNode post = sort(slow.next, end);
-        slow.next = null;   // 为什么要把slow.next置null才能避免栈溢出？可能是因为后面的merge操作
+        slow.next = null;   // 将前后两半截链表分开
         ListNode pre = sort(head, slow);
         return merge(post, pre);
     }

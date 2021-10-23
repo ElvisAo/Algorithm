@@ -1,23 +1,25 @@
 package leetcode.动态规划.戳气球;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
+/**
+ * leetcode 312
+ */
 public class Solution {
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new FileInputStream("E:\\Everett\\OneDrive - std.uestc.edu.cn\\Data\\leecode\\LeecodeSolutions\\src\\main\\java\\leetcode.戳气球\\input.txt"));
-        String[] split = scanner.nextLine().split(",");
-        int[] nums = new int[split.length];
-        for (int i = 0; i < split.length; i++) {
-            nums[i] = Integer.parseInt(split[i]);
-        }
+        int[] nums = {7, 1, 6, 8, 2, 9, 4};
         System.out.println(new Solution().solution_2(nums));
     }
 
     private int res;
 
+    /**
+     * 回溯法：超时
+     *
+     * @param nums
+     * @return
+     */
     public int solution_1(int[] nums) {
         ArrayList<Integer> list = new ArrayList<>();
         for (int n : nums) list.add(n);
@@ -38,7 +40,6 @@ public class Solution {
         }
     }
 
-    /*************上面的为回溯法：超时***************/
     /**
      * {@动态规划}
      *
@@ -62,7 +63,7 @@ public class Solution {
                     // 状态dp[i][j]依赖与dp[i][k]和dp[k][j]；所以在计算ij前，ik和kj必须被计算出来
                     // 怎么保证？
                     // dp[i][j]是i行j列；dp[i][k]是i行k列；dp[k][j]是k行j列
-                    // 其中：i<k<j，即始终是行号小于列号的区域，即dp数组的右上部分
+                    // 其中：i<k<j，即始终是行号小于列号的区域，即dp数组的右上部分。所以i<k<j时，dp[i][k],dp[k][j]已经求出来了，因为是从下到上，从左到右计算的
                     // 最终要求的是dp[0][ln+2]，所以可以从下往上，从左往右计算
                 }
             }

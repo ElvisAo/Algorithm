@@ -4,6 +4,7 @@ import java.util.Stack;
 
 /**
  * @see nowcoder.动态规划.最长的括号子串.Solution#solution_1(String)
+ * leetcode 32
  */
 public class Solution {
     public static void main(String[] args) {
@@ -36,5 +37,31 @@ public class Solution {
             else if (stack.isEmpty() || stack.pop() != '(') return false;
         }
         return stack.isEmpty();
+    }
+
+    /**
+     * 栈：把(的索引或第一个不合法的索引入栈。每pop出一个(，即求出了一个合法的括号串，
+     * 然后把当前的合法括号长度与已经取得的最长合法括号长度进行比较
+     *
+     * @param s
+     * @return
+     */
+    public int solution_2(String s) {
+        int ln = s.length();
+        Stack<Integer> stack = new Stack<>();
+        stack.push(-1);
+        int r = 0, cr;
+        for (int i = 0; i < ln; i++) {
+            if (s.charAt(i) == '(') stack.push(i);
+            else {
+                stack.pop();    // caution：必须先pop
+                if (stack.isEmpty()) stack.push(i); // 如果已经空了，说明当前就不合法，不用和r取最值
+                else {  // 否则表示当前串是合法的，和r取最值
+                    cr = i - stack.peek();
+                    r = Math.max(cr, r);
+                }
+            }
+        }
+        return r;
     }
 }

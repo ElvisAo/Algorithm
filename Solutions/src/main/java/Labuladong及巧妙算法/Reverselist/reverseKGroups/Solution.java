@@ -31,7 +31,7 @@ public class Solution {
             if (b == null) return head;
             b = b.next;
         }
-        ListNode h = reverse(a, b);  // 反转后，head就是最后一个元素，h是第一个元素
+        ListNode h = reverse(a, b);  // 反转后，head就是最后一个元素，h是第一个元素，不包括最后的b
         a.next = reverseKGroup(b, k);    // 递归处理
         return h;
     }

@@ -5,6 +5,8 @@ import java.util.PriorityQueue;
 
 /**
  * 同主持人调度
+ *
+ * @see Labuladong及巧妙算法.调度问题.所需会议室数.Solution
  */
 public class Solution {
     /**
